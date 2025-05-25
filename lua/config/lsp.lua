@@ -10,3 +10,13 @@ lspconfig.prismals.setup({
     debounce_text_changes = 150,
   },
 })
+
+lspconfig.clangd.setup({
+  cmd = { "clangd", "--compile-commands-dir=cpp" }, -- Adjust if needed
+  on_attach = function(client, bufnr)
+    -- Optional: set keymaps or LSP options for C/C++
+  end,
+  flags = {
+    debounce_text_changes = 150,
+  },
+})
