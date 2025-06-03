@@ -4,7 +4,7 @@ return {
     opts = {
       servers = {
         clangd = {
-          cmd = { "clangd" },
+          cmd = { "clangd", "--compile-commands-dir=." },
         },
       },
     },
