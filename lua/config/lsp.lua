@@ -20,3 +20,15 @@ lspconfig.clangd.setup({
     debounce_text_changes = 150,
   },
 })
+--
+-- lspconfig.pylsp.setup({
+--   settings = {
+--     pylsp = {
+--       plugins = {
+--         rope_completion = { enabled = false },
+--         rope_rename = { enabled = false },
+--         rope_outline = { enabled = false },
+--       },
+--     },
+--   },
+-- })

@@ -1,6 +1,74 @@
 vim.api.nvim_set_keymap("i", "<Tab>", 'pumvisible() ? "<C-n>" : "<Tab>"', { expr = true, noremap = true })
 vim.api.nvim_set_keymap("i", "<S-Tab>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true, noremap = true })
 
+-- -- Format selected code in visual mode
+-- vim.keymap.set("v", "<leader>cf", function()
+--   require("conform").format({
+--     async = true,
+--     lsp_fallback = true,
+--     range = {
+--       ["start"] = vim.api.nvim_buf_get_mark(0, "<"),
+--       ["end"] = vim.api.nvim_buf_get_mark(0, ">"),
+--     },
+--   })
+-- end, { desc = "Format selected code" })
+--
+-- -- Format from top to cursor line
+-- vim.keymap.set("n", "<leader>cu", function()
+--   local row = vim.api.nvim_win_get_cursor(0)[1]
+--   require("conform").format({
+--     async = true,
+--     lsp_fallback = true,
+--     range = {
+--       ["start"] = { 1, 0 },
+--       ["end"] = { row, 0 },
+--     },
+--   })
+-- end, { desc = "Format from top to cursor" })
+--
+-- -- Format from cursor line to bottom
+-- vim.keymap.set("n", "<leader>cJ", function()
+--   local row = vim.api.nvim_win_get_cursor(0)[1]
+--   local last = vim.api.nvim_buf_line_count(0)
+--   require("conform").format({
+--     async = true,
+--     lsp_fallback = true,
+--     range = {
+--       ["start"] = { row, 0 },
+--       ["end"] = { last, 0 },
+--     },
+--   })
+-- end, { desc = "Format from cursor to bottom" })
+
+-- python format config below
+-- vim.keymap.set("n", "<leader>F", function()
+--   require("conform").format({ async = true })
+-- end, { desc = "Format file with conform" })
+--
+-- vim.keymap.set("n", "<leader>afa", function()
+--   local row = vim.api.nvim_win_get_cursor(0)[1]
+--   require("conform").format({
+--     async = true,
+--     lsp_fallback = true,
+--     range = {
+--       ["start"] = { 1, 0 },
+--       ["end"] = { row, 0 },
+--     },
+--   })
+-- end, { desc = "Format from top to current line" })
+--
+-- vim.keymap.set("n", "<leader>afb", function()
+--   local row = vim.api.nvim_win_get_cursor(0)[1]
+--   local last_line = vim.api.nvim_buf_line_count(0)
+--   require("conform").format({
+--     async = true,
+--     lsp_fallback = true,
+--     range = {
+--       ["start"] = { row, 0 },
+--       ["end"] = { last_line, 0 },
+--     },
+--   })
+-- end, { desc = "Format from current line to bottom" })
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
