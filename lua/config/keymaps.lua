@@ -1,6 +1,10 @@
 vim.api.nvim_set_keymap("i", "<Tab>", 'pumvisible() ? "<C-n>" : "<Tab>"', { expr = true, noremap = true })
 vim.api.nvim_set_keymap("i", "<S-Tab>", 'pumvisible() ? "<C-p>" : "<S-Tab>"', { expr = true, noremap = true })
 
+vim.keymap.set("n", "<leader>rg", ":GoRun<CR>", { desc = "Run Go Program" })
+-- vim.keymap.set("n", "<leader>tg", ":GoTest<CR>", { desc = "Test Go Program" })
+-- vim.keymap.set("n", "<leader>tf", ":GoTestFunc<CR>", { desc = "Test Current Function" })
+vim.keymap.set("n", "<leader>dg", ":GoDebug<CR>", { desc = "Debug Go Program" })
 -- -- Format selected code in visual mode
 -- vim.keymap.set("v", "<leader>cf", function()
 --   require("conform").format({

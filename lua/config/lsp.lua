@@ -20,6 +20,14 @@ lspconfig.clangd.setup({
     debounce_text_changes = 150,
   },
 })
+
+-- For DSA-only Java setup: minimal workspace directory per project
+local workspace_dir = vim.fn.stdpath("data") .. "/java/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+
+lspconfig.jdtls.setup({
+  cmd = { "jdtls", "-data", workspace_dir },
+  root_dir = lspconfig.util.root_pattern(".git", "pom.xml", "build.gradle", ".classpath", ".project", ".settings", "."), -- fallback to current folder
+})
 --
 -- lspconfig.pylsp.setup({
 --   settings = {
@@ -32,3 +40,11 @@ lspconfig.clangd.setup({
 --     },
 --   },
 -- })
+
+-- Golang LSP setup
+lspconfig.gopls.setup({
+  on_attach = function(client, bufnr)
+    -- Optional: Add keymaps or custom on_attach logic
+  end,
+  flags = { debounce_text_changes = 150 },
+})
