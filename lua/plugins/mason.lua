@@ -35,6 +35,7 @@ return {
 
         -- C / C++
         "clangd",
+        "clang-format",
 
         -- Web
         "css-lsp",
