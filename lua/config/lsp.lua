@@ -42,9 +42,29 @@ lspconfig.jdtls.setup({
 -- })
 
 -- Golang LSP setup
+
 lspconfig.gopls.setup({
+  settings = {
+    gopls = {
+      ui = { semanticTokens = true },
+    },
+  },
   on_attach = function(client, bufnr)
-    -- Optional: Add keymaps or custom on_attach logic
+    if client.server_capabilities.semanticTokensProvider then
+      local augroup = vim.api.nvim_create_augroup("SemanticTokens", { clear = true })
+
+      local function refresh_semantic_tokens()
+        local params = { textDocument = vim.lsp.util.make_text_document_params() }
+        client.request("textDocument/semanticTokens/full", params, nil, bufnr)
+      end
+
+      vim.api.nvim_create_autocmd({ "BufEnter", "TextChanged", "InsertLeave" }, {
+        group = augroup,
+        buffer = bufnr,
+        callback = refresh_semantic_tokens,
+      })
+
+      refresh_semantic_tokens()
+    end
   end,
-  flags = { debounce_text_changes = 150 },
 })

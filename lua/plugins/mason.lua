@@ -22,13 +22,13 @@ return {
 
         -- Go
         "gopls",
-        "gofumpt",
+        -- "gofumpt",
         "goimports",
         "golangci-lint",
         -- "golines",
         -- "gomodifytags",
         -- "gotests",
-        "go-debug-adapter",
+        -- "go-debug-adapter",
 
         -- Java
         "jdtls",
