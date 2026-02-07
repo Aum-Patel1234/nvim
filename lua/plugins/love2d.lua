@@ -9,9 +9,8 @@ return {
               globals = { "love" },
             },
             workspace = {
-              library = {
-                vim.fn.getenv("LOVE2D_LIB"),
-              },
+              checkThirdParty = false,
+              library = vim.api.nvim_get_runtime_file("", true),
             },
           },
         },
