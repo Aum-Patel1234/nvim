@@ -13,3 +13,9 @@
 --     vim.b.autoformat = false
 --   end,
 -- })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  callback = function()
+    vim.opt.guicursor = "a:block"
+  end,
+})
