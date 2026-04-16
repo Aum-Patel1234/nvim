@@ -16,10 +16,10 @@ return {
     opts.formatters_by_ft.json = { "prettier" }
     opts.formatters_by_ft.markdown = { "prettier" }
 
-    -- Enable format on save for Python and C/C++
-    opts.format_on_save = function(bufnr)
-      local ft = vim.bo[bufnr].filetype
-      return ft == "python" or ft == "cpp" or ft == "c" or ft == "go"
-    end
+    -- -- Enable format on save for Python and C/C++
+    -- opts.format_on_save = function(bufnr)
+    --   local ft = vim.bo[bufnr].filetype
+    --   return ft == "python" or ft == "cpp" or ft == "c" or ft == "go"
+    -- end
   end,
 }
