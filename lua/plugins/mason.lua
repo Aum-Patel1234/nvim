@@ -18,7 +18,6 @@ return {
 
         -- Rust
         "rust-analyzer",
-        "rustfmt",
 
         -- Go
         "gopls",
