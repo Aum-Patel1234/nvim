@@ -136,6 +136,7 @@ return {
         "yaml",
         "go",
         "gomod",
+        "zig",
       },
     },
   },

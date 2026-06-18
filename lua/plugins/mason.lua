@@ -46,6 +46,9 @@ return {
         "tailwindcss-language-server",
         "typescript-language-server",
         "vtsls",
+
+        -- zig
+        "zls",
       },
     },
   },
