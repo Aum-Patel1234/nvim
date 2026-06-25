@@ -12,9 +12,10 @@ return {
         "shfmt",
 
         -- Python
-        "black",
-        "pylint",
+        -- "black",
+        -- "pylint",
         "pyright",
+        "ruff",
 
         -- Rust
         "rust-analyzer",
